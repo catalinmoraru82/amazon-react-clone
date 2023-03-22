@@ -18,28 +18,22 @@ const books = [
 ]
 
 const Booklist = () => {
-  const getBook = (id) => {
-    const selectedBook = books.filter((book) => book.id === id)
-    console.log(selectedBook[0])
-  }
-
   return (
     <section className="booklist">
       {
         books.map((book) => {
-          return <Book {...book} key={book.id} getBook={getBook}/>
+          return <Book {...book} key={book.id}/>
         })
       }
     </section>
   )
 }
 
-const Book = ({author, title, img, id, getBook}) => {
+const Book = ({author, title, img}) => {
   return (
     <article className="book">
         <img src={img} alt={title} />
         <h2>{title}</h2> 
-        <button onClick={() => {getBook(id)}}>Click</button>
         <h4>{author.toUpperCase()}</h4>
     </article>
   )
